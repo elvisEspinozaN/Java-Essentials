@@ -60,12 +60,12 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public String getEmailAdress() {
+    public String getEmailAddress() {
         return emailAddress;
     }
 
-    public void setEmailAdress(String emailAdress) {
-        this.emailAddress = emailAdress;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getAddress() {
