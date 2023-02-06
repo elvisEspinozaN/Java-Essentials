@@ -31,7 +31,7 @@ public class RoomReservationController {
         Date date = this.dateUtils.createDateFromDateString(dateString); // dateString that is passed in
         List<RoomReservation> roomReservations = this.reservationService.getRoomReservationsForDate(date);
         // live model -> pass it our list
-        model.addAttribute("roomreservation", roomReservations);
+        model.addAttribute("roomReservations", roomReservations);
         // string is the name of the template we want to return
         return "roomres";
     }
