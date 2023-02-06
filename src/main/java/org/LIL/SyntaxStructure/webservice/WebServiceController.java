@@ -2,11 +2,11 @@ package org.LIL.SyntaxStructure.webservice;
 
 import org.LIL.SyntaxStructure.business.ReservationService;
 import org.LIL.SyntaxStructure.business.RoomReservation;
+import org.LIL.SyntaxStructure.data.Guest;
+import org.LIL.SyntaxStructure.data.Room;
 import org.LIL.SyntaxStructure.util.DateUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -29,4 +29,19 @@ public class WebServiceController {
         return this.reservationService.getRoomReservationsForDate(date);
     }
 
+    @GetMapping(path = "/guests")
+    public List<Guest> getGuests() {
+        return this.reservationService.getHotelGuests();
+    }
+
+    @PostMapping(path = "/guests")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void setGuest(@RequestBody Guest guest) {
+        this.reservationService.addGuest(guest);
+    }
+
+    @GetMapping("/rooms")
+    public List<Room> getRooms() {
+        return this.reservationService.getRooms();
+    }
 }
